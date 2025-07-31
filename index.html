@@ -1,298 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <title>Web Design Mastery | StartUp</title>
-  </head>
-  <body>
-    <nav class="section__container nav__container">
-      <div class="nav__logo">WDM</div>
-      <ul class="nav__links">
-        <li class="link"><a href="#">Home</a></li>
-        <li class="link"><a href="#">Pricing</a></li>
-        <li class="link"><a href="#">Company</a></li>
-        <li class="link"><a href="#">Resource</a></li>
-        <li class="link"><a href="#">Blog</a></li>
-      </ul>
-      <button class="btn">Purchase</button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS Admin Dashboard</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+            <!-- Sidebar Toggle -->
+            <button class="btn btn-link sidebar-toggle" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            
+            <!-- Brand -->
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-cloud-fill me-2"></i>
+                SaaS Dashboard
+            </a>
+            
+            <!-- Search Bar -->
+            <div class="d-none d-md-block flex-grow-1 mx-4">
+                <div class="input-group">
+                    <span class="input-group-text bg-transparent border-end-0">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    <input type="text" class="form-control border-start-0" placeholder="Search...">
+                </div>
+            </div>
+            
+            <!-- Right Side Items -->
+            <ul class="navbar-nav ms-auto">
+                <!-- Notifications -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link position-relative" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-bell"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            3
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><h6 class="dropdown-header">Notifications</h6></li>
+                        <li><a class="dropdown-item" href="#">New user registered</a></li>
+                        <li><a class="dropdown-item" href="#">Payment received</a></li>
+                        <li><a class="dropdown-item" href="#">System update available</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">View all notifications</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Profile Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown">
+                        <img src="https://via.placeholder.com/32x32/007bff/ffffff?text=JD" class="rounded-circle me-2" alt="Profile">
+                        <span class="d-none d-sm-inline">John Doe</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profile</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Settings</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </nav>
-    <header class="section__container header__container">
-      <h1 class="section__header">
-        Create fast websites,<br />
-        in no <span>time.</span>
-      </h1>
-      <p>
-        Looking to create a website quickly and easily? Our website building
-        service offers fast turnaround times and streamilned design options,
-        allowing you to get online in no time.
-      </p>
-      <button class="btn">Create Account</button>
-    </header>
 
-    <section class="section__container service__container">
-      <p class="section__subheader">Our Services</p>
-      <h2 class="section__header">We Help to built startup websites</h2>
-      <div class="service__grid">
-        <div class="service__card">
-          <div class="service__icon">
-            <img src="assets/service-1.png" alt="service" />
-          </div>
-          <h4>Website Builders</h4>
-          <p>
-            Creating stunning, user-friendly websites tailored to your brand,
-            with expertise in design, development, and online success.
-          </p>
-          <a href="#">
-            Learn more <span><i class="ri-arrow-right-line"></i></span>
-          </a>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h5><i class="bi bi-grid-1x2-fill me-2"></i>Menu</h5>
         </div>
-        <div class="service__card">
-          <div class="service__icon">
-            <img src="assets/service-2.png" alt="service" />
-          </div>
-          <h4>Content Management System</h4>
-          <p>
-            Streamline website management with a user-friendly platform for easy
-            content creation, editing, and organization.
-          </p>
-          <a href="#">
-            Learn more <span><i class="ri-arrow-right-line"></i></span>
-          </a>
-        </div>
-        <div class="service__card">
-          <div class="service__icon">
-            <img src="assets/service-3.png" alt="service" />
-          </div>
-          <h4>Web Design</h4>
-          <p>
-            User-centric web design. Elevate your online presence with
-            beautiful, functional websites tailored to your unique needs.
-          </p>
-          <a href="#">
-            Learn more <span><i class="ri-arrow-right-line"></i></span>
-          </a>
-        </div>
-        <div class="service__card">
-          <div class="service__icon">
-            <img src="assets/service-4.png" alt="service" />
-          </div>
-          <h4>Hosting Service</h4>
-          <p>
-            Reliable and secure hosting solutions for website performance,
-            ensuring optimal speed and uptime for online presence.
-          </p>
-          <a href="#">
-            Learn more <span><i class="ri-arrow-right-line"></i></span>
-          </a>
-        </div>
-        <div class="service__card">
-          <div class="service__icon">
-            <img src="assets/service-5.png" alt="service" />
-          </div>
-          <h4>E-Commerce Solutions</h4>
-          <p>
-            Scalable e-commerce solutions that drive online sales, enhance user
-            experience, and boost business growth.
-          </p>
-          <a href="#">
-            Learn more <span><i class="ri-arrow-right-line"></i></span>
-          </a>
-        </div>
-        <div class="service__card">
-          <div class="service__icon">
-            <img src="assets/service-6.png" alt="service" />
-          </div>
-          <h4>Web Development</h4>
-          <p>
-            Expertly crafting functional and dynamic websites, tailored to your
-            unique needs and designed to captivate your audience.
-          </p>
-          <a href="#">
-            Learn more <span><i class="ri-arrow-right-line"></i></span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section__container template__container">
-      <div class="template__content">
-        <p class="section__subheader">Our Templates</p>
-        <h2 class="section__header">Powerful UI kit templates for webflow</h2>
-        <p class="description">
-          Hosting services like Bluehost, HostGator, or SiteGround provide the
-          server space and technology needed to keep your website online.
-        </p>
-        <button class="btn">Learn more</button>
-      </div>
-      <div class="template__image">
-        <img src="assets/template.jpg" alt="template" />
-      </div>
-    </section>
-
-    <section class="section__container client__container">
-      <p class="section__subheader">Testimonials</p>
-      <h2 class="section__header">What client says about us</h2>
-      <div class="client__grid">
-        <div class="client__card">
-          <img src="assets/pic-1.jpg" alt="client" />
-          <h4>Love the simplicity</h4>
-          <p>
-            They understood our brand and created a stunning website design.
-            Professional, responsive, and on-time delivery. Highly recommended!
-          </p>
-        </div>
-        <div class="client__card">
-          <img src="assets/pic-2.jpeg" alt="client" />
-          <h4>Excellent Design and Service</h4>
-          <p>
-            Efficient, reliable, and results-oriented. Visually appealing
-            website, improved online visibility. Highly recommended!
-          </p>
-        </div>
-        <div class="client__card">
-          <img src="assets/pic-3.jpg" alt="client" />
-          <h4>Efficient and Reliable</h4>
-          <p>
-            Best decision we made. Stunning website, exceptional support. Always
-            available and prompt issue resolution. Hassle-free experience!
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section__container question__container">
-      <p class="section__subheader">Hhave Questions?</p>
-      <h2 class="section__header">Frequently asked questions</h2>
-      <div class="question__accordian">
-        <div class="question__box">
-          <div class="title">
-            <span>What services does your website design agency offer?</span>
-            <span class="icon"><i class="ri-add-fill"></i></span>
-          </div>
-          <div class="content">
-            Our website design agency offers a wide range of services including
-            custom website design, responsive design, e-commerce development,
-            content management system integration, search engine optimization
-            (SEO), website maintenance, and ongoing support.
-          </div>
-        </div>
-        <div class="question__box">
-          <div class="title">
-            <span
-              >What is the typical timeline for completing a website design
-              project?</span
-            >
-            <span class="icon"><i class="ri-add-fill"></i></span>
-          </div>
-          <div class="content">
-            The timeline for completing a website design project depends on
-            various factors such as the size of the website, functionality
-            requirements, and the availability of content. On average, a typical
-            website design project takes approximately 4-8 weeks from initial
-            consultation to launch.
-          </div>
-        </div>
-        <div class="question__box">
-          <div class="title">
-            <span>Do you provide ongoing website maintenance and support?</span>
-            <span class="icon"><i class="ri-add-fill"></i></span>
-          </div>
-          <div class="content">
-            Yes, we offer ongoing website maintenance and support services to
-            ensure your website remains up-to-date, secure, and performs
-            optimally. Our maintenance plans include regular updates, backups,
-            security monitoring, and technical support.
-          </div>
-        </div>
-        <div class="question__box">
-          <div class="title">
-            <span
-              >Can you create a custom website design that aligns with our brand
-              identity?</span
-            >
-            <span class="icon"><i class="ri-add-fill"></i></span>
-          </div>
-          <div class="content">
-            Absolutely! We specialize in creating custom website designs that
-            are tailored to reflect your unique brand identity. Our team works
-            closely with you to understand your brand and design a website that
-            captures your vision, values, and target audience.
-          </div>
-        </div>
-        <div class="question__box">
-          <div class="title">
-            <span
-              >Do you offer responsive design to ensure our website works well
-              on mobile devices?</span
-            >
-            <span class="icon"><i class="ri-add-fill"></i></span>
-          </div>
-          <div class="content">
-            Yes, responsive design is a crucial aspect of our website
-            development process. We create websites that adapt seamlessly to
-            different screen sizes and devices, ensuring optimal user experience
-            and usability on desktops, tablets, and smartphones.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="section__container footer__container">
-      <div class="footer__grid">
-        <div class="footer__col">
-          <h4>WDM</h4>
-          <p>
-            <span><i class="ri-mail-fill"></i></span> startup@gmail.com
-          </p>
-          <p>
-            <span><i class="ri-phone-fill"></i></span> +91 9876543210
-          </p>
-        </div>
-        <div class="footer__col">
-          <h4>About</h4>
-          <p>Home</p>
-          <p>Pricing</p>
-          <p>Company</p>
-          <p>Resource</p>
-        </div>
-        <div class="footer__col">
-          <h4>Features</h4>
-          <p>Blog</p>
-          <p>Privacy Policy</p>
-          <p>Terms & Conditions</p>
-        </div>
-        <div class="footer__col">
-          <h4>Contact</h4>
-          <p>Department</p>
-          <p>Media</p>
-          <p>Support</p>
-        </div>
-      </div>
-    </footer>
-    <div class="section__container footer__bar">
-      <p>Copyright © 2023 Web Design Mastery. All rights reserved.</p>
-      <div class="socials">
-        <span><i class="ri-facebook-fill"></i></span>
-        <span><i class="ri-twitter-fill"></i></span>
-        <span><i class="ri-instagram-line"></i></span>
-        <span><i class="ri-youtube-fill"></i></span>
-      </div>
+        
+        <ul class="sidebar-nav">
+            <li class="sidebar-item active">
+                <a href="#" class="sidebar-link">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <i class="bi bi-people"></i>
+                    <span>Users</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <i class="bi bi-cart"></i>
+                    <span>Orders</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <i class="bi bi-graph-up"></i>
+                    <span>Analytics</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <i class="bi bi-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <i class="bi bi-file-earmark-text"></i>
+                    <span>Reports</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <i class="bi bi-question-circle"></i>
+                    <span>Support</span>
+                </a>
+            </li>
+        </ul>
     </div>
 
-    <script>
-      const questionBox = document.getElementsByClassName("question__box");
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <div class="container-fluid">
+            <!-- Page Header -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h1 class="page-title">Dashboard</h1>
+                    <p class="text-muted">Welcome back! Here's what's happening with your business today.</p>
+                </div>
+            </div>
 
-      for (let i = 0; i < questionBox.length; i++) {
-        questionBox[i].addEventListener("click", function () {
-          this.classList.toggle("active");
-        });
-      }
-    </script>
-  </body>
+            <!-- Analytics Cards -->
+            <div class="row mb-4">
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card analytics-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="card-subtitle mb-2 text-muted">Total Users</h6>
+                                    <h2 class="card-title mb-0">12,847</h2>
+                                    <small class="text-success">
+                                        <i class="bi bi-arrow-up"></i> 12% increase
+                                    </small>
+                                </div>
+                                <div class="analytics-icon bg-primary">
+                                    <i class="bi bi-people"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card analytics-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="card-subtitle mb-2 text-muted">Revenue</h6>
+                                    <h2 class="card-title mb-0">$48,392</h2>
+                                    <small class="text-success">
+                                        <i class="bi bi-arrow-up"></i> 8% increase
+                                    </small>
+                                </div>
+                                <div class="analytics-icon bg-success">
+                                    <i class="bi bi-currency-dollar"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card analytics-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="card-subtitle mb-2 text-muted">Orders</h6>
+                                    <h2 class="card-title mb-0">1,234</h2>
+                                    <small class="text-danger">
+                                        <i class="bi bi-arrow-down"></i> 3% decrease
+                                    </small>
+                                </div>
+                                <div class="analytics-icon bg-warning">
+                                    <i class="bi bi-cart"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card analytics-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="card-subtitle mb-2 text-muted">Conversion Rate</h6>
+                                    <h2 class="card-title mb-0">3.24%</h2>
+                                    <small class="text-success">
+                                        <i class="bi bi-arrow-up"></i> 5% increase
+                                    </small>
+                                </div>
+                                <div class="analytics-icon bg-info">
+                                    <i class="bi bi-graph-up"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="row mb-4">
+                <div class="col-xl-8 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Revenue Overview</h5>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="revenueChart" height="100"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-4 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Traffic Sources</h5>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="trafficChart" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity Table -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title mb-0">Recent Activity</h5>
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#activityModal">
+                                View All
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>User</th>
+                                            <th>Action</th>
+                                            <th>Details</th>
+                                            <th>Time</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://via.placeholder.com/32x32/007bff/ffffff?text=JD" class="rounded-circle me-2" alt="User">
+                                                    <div>
+                                                        <div class="fw-bold">John Doe</div>
+                                                        <small class="text-muted">john@example.com</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>New Order</td>
+                                            <td>Order #12345 - $299.99</td>
+                                            <td>2 minutes ago</td>
+                                            <td><span class="badge bg-success">Completed</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://via.placeholder.com/32x32/28a745/ffffff?text=JS" class="rounded-circle me-2" alt="User">
+                                                    <div>
+                                                        <div class="fw-bold">Jane Smith</div>
+                                                        <small class="text-muted">jane@example.com</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Account Update</td>
+                                            <td>Changed subscription plan</td>
+                                            <td>15 minutes ago</td>
+                                            <td><span class="badge bg-info">Updated</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://via.placeholder.com/32x32/dc3545/ffffff?text=MB" class="rounded-circle me-2" alt="User">
+                                                    <div>
+                                                        <div class="fw-bold">Mike Brown</div>
+                                                        <small class="text-muted">mike@example.com</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Payment Failed</td>
+                                            <td>Payment declined - $199.99</td>
+                                            <td>1 hour ago</td>
+                                            <td><span class="badge bg-danger">Failed</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://via.placeholder.com/32x32/ffc107/ffffff?text=SL" class="rounded-circle me-2" alt="User">
+                                                    <div>
+                                                        <div class="fw-bold">Sarah Lee</div>
+                                                        <small class="text-muted">sarah@example.com</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>New Registration</td>
+                                            <td>Free trial started</td>
+                                            <td>2 hours ago</td>
+                                            <td><span class="badge bg-warning">Pending</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Activity Modal -->
+    <div class="modal fade" id="activityModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">All Activity</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>This modal would show all recent activity with pagination and filtering options.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <label class="form-label">Filter by:</label>
+                            <select class="form-select form-select-sm">
+                                <option>All Activities</option>
+                                <option>Orders</option>
+                                <option>Payments</option>
+                                <option>Registrations</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="form-label">Date Range:</label>
+                            <input type="date" class="form-control form-control-sm">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Export Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
 </html>
