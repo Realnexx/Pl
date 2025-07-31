@@ -1,0 +1,491 @@
+/* Custom CSS for SaaS Admin Dashboard */
+
+/* CSS Variables for Color Theme */
+:root {
+    --primary-blue: #007bff;
+    --secondary-blue: #0056b3;
+    --accent-orange: #fd7e14;
+    --light-orange: #ff8c42;
+    --dark-blue: #1e3a8a;
+    --light-blue: #e3f2fd;
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-600: #6c757d;
+    --gray-800: #343a40;
+    --white: #ffffff;
+    --shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --shadow-lg: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --border-radius: 0.5rem;
+    --transition: all 0.3s ease;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--gray-100);
+    overflow-x: hidden;
+}
+
+/* Navbar Styles */
+.navbar {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    box-shadow: var(--shadow-lg);
+    z-index: 1030;
+    padding: 0.75rem 1rem;
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--white) !important;
+}
+
+.navbar-brand:hover {
+    color: var(--light-orange) !important;
+    transition: var(--transition);
+}
+
+.sidebar-toggle {
+    color: var(--white) !important;
+    border: none;
+    background: transparent;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.sidebar-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--light-orange) !important;
+}
+
+.navbar .input-group {
+    max-width: 400px;
+}
+
+.navbar .input-group-text,
+.navbar .form-control {
+    border-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+}
+
+.navbar .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.navbar .form-control:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--light-orange);
+    box-shadow: 0 0 0 0.2rem rgba(253, 126, 20, 0.25);
+    color: var(--white);
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    color: var(--light-orange) !important;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background: linear-gradient(180deg, var(--white) 0%, var(--gray-100) 100%);
+    box-shadow: var(--shadow-lg);
+    z-index: 1020;
+    transition: var(--transition);
+    transform: translateX(0);
+}
+
+.sidebar.collapsed {
+    transform: translateX(-100%);
+}
+
+.sidebar-header {
+    padding: 1.5rem 1rem 1rem;
+    border-bottom: 1px solid var(--gray-200);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+    color: var(--white);
+}
+
+.sidebar-header h5 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 1rem 0;
+}
+
+.sidebar-item {
+    margin: 0.25rem 0;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    color: var(--gray-800);
+    text-decoration: none;
+    transition: var(--transition);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    margin-right: 1rem;
+}
+
+.sidebar-link:hover {
+    background-color: var(--light-blue);
+    color: var(--primary-blue);
+    text-decoration: none;
+    transform: translateX(5px);
+}
+
+.sidebar-item.active .sidebar-link {
+    background: linear-gradient(90deg, var(--primary-blue) 0%, var(--accent-orange) 100%);
+    color: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.sidebar-link i {
+    font-size: 1.1rem;
+    margin-right: 0.75rem;
+    width: 20px;
+    text-align: center;
+}
+
+.sidebar-link span {
+    font-weight: 500;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 250px;
+    padding-top: 80px;
+    min-height: 100vh;
+    transition: var(--transition);
+}
+
+.main-content.expanded {
+    margin-left: 0;
+}
+
+.page-title {
+    color: var(--dark-blue);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+/* Analytics Cards */
+.analytics-card {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    background: linear-gradient(135deg, var(--white) 0%, var(--gray-100) 100%);
+}
+
+.analytics-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.analytics-card .card-title {
+    color: var(--dark-blue);
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.analytics-card .card-subtitle {
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.analytics-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.analytics-icon.bg-primary {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%) !important;
+}
+
+.analytics-icon.bg-success {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%) !important;
+}
+
+.analytics-icon.bg-warning {
+    background: linear-gradient(135deg, var(--accent-orange) 0%, var(--light-orange) 100%) !important;
+}
+
+.analytics-icon.bg-info {
+    background: linear-gradient(135deg, #17a2b8 0%, #6f42c1 100%) !important;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+    background: linear-gradient(135deg, var(--white) 0%, var(--gray-100) 100%);
+    border-bottom: 1px solid var(--gray-200);
+    font-weight: 600;
+    color: var(--dark-blue);
+}
+
+/* Table Styles */
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    border-top: none;
+    font-weight: 600;
+    color: var(--gray-800);
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.5px;
+}
+
+.table td {
+    vertical-align: middle;
+    border-color: var(--gray-200);
+}
+
+.table-hover tbody tr:hover {
+    background-color: var(--light-blue);
+}
+
+/* Badge Styles */
+.badge {
+    font-weight: 500;
+    padding: 0.5em 0.75em;
+}
+
+/* Button Styles */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+    border: none;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--dark-blue) 100%);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Modal Styles */
+.modal-content {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+    color: var(--white);
+    border-bottom: none;
+}
+
+.modal-title {
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .sidebar.show {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+    
+    .navbar .input-group {
+        display: none;
+    }
+    
+    .analytics-card .card-title {
+        font-size: 1.5rem;
+    }
+    
+    .analytics-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-title {
+        font-size: 1.75rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .table-responsive {
+        font-size: 0.875rem;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-200);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-orange) 100%);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--light-orange) 100%);
+}
+
+/* Loading States */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid var(--gray-300);
+    border-top: 2px solid var(--primary-blue);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Utility Classes */
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.bg-gradient-primary {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+}
+
+.bg-gradient-orange {
+    background: linear-gradient(135deg, var(--accent-orange) 0%, var(--light-orange) 100%);
+}
+
+/* Chart Container Styles */
+canvas {
+    max-height: 400px;
+}
+
+/* Form Controls */
+.form-control:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-select:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Dropdown Styles */
+.dropdown-menu {
+    border: none;
+    box-shadow: var(--shadow-lg);
+    border-radius: var(--border-radius);
+}
+
+.dropdown-item:hover {
+    background-color: var(--light-blue);
+    color: var(--primary-blue);
+}
+
+.dropdown-header {
+    color: var(--gray-600);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+}
